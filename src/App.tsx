@@ -1,10 +1,17 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import axios from 'axios';
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+
+  const testClick = async () => {
+    let test = await axios.get("http://localhost:8090/public/testApi")
+    console.log(test)
+  }
+
 
   return (
     <>
@@ -18,7 +25,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button onClick={() => testClick()}>
           count is {count}
         </button>
         <p>
